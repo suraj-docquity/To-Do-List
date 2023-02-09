@@ -16,6 +16,7 @@
 		9A5D10F02994EC7E00C05760 /* To_Do_ListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5D10EF2994EC7E00C05760 /* To_Do_ListTests.swift */; };
 		9A5D10FA2994EC7E00C05760 /* To_Do_ListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5D10F92994EC7E00C05760 /* To_Do_ListUITests.swift */; };
 		9A5D10FC2994EC7E00C05760 /* To_Do_ListUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5D10FB2994EC7E00C05760 /* To_Do_ListUITestsLaunchTests.swift */; };
+		9A5D11092994EFEB00C05760 /* ContactModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5D11082994EFEB00C05760 /* ContactModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		9A5D10F52994EC7E00C05760 /* To Do ListUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "To Do ListUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A5D10F92994EC7E00C05760 /* To_Do_ListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = To_Do_ListUITests.swift; sourceTree = "<group>"; };
 		9A5D10FB2994EC7E00C05760 /* To_Do_ListUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = To_Do_ListUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		9A5D11082994EFEB00C05760 /* ContactModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				9A5D10D82994EC7700C05760 /* AppDelegate.swift */,
+				9A5D11082994EFEB00C05760 /* ContactModel.swift */,
 				9A5D10DA2994EC7700C05760 /* SceneDelegate.swift */,
 				9A5D10DC2994EC7700C05760 /* ViewController.swift */,
 				9A5D10DE2994EC7700C05760 /* Main.storyboard */,
@@ -260,6 +263,7 @@
 			files = (
 				9A5D10DD2994EC7700C05760 /* ViewController.swift in Sources */,
 				9A5D10D92994EC7700C05760 /* AppDelegate.swift in Sources */,
+				9A5D11092994EFEB00C05760 /* ContactModel.swift in Sources */,
 				9A5D10DB2994EC7700C05760 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
