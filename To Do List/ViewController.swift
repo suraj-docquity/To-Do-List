@@ -31,6 +31,8 @@ class ViewController: UIViewController {
                 let contact = Contact(firstName: firstName, lastName: lastName)
                 self.contactList.append(contact)
                 self.ContactTableView.reloadData()
+                
+                DatabaseHelper.shared.saveContact(contact: contact)
             }
         }
         let cancel = UIAlertAction(title: "Cancel", style: .cancel)
@@ -56,7 +58,7 @@ extension ViewController {
         ContactTableView.dataSource = self
         ContactTableView.delegate = self
         ContactTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        
+        contactList = DatabaseHelper.shared.getAllContacts()
     }
 }
 
@@ -92,7 +94,8 @@ extension ViewController : UITableViewDelegate {
                    let lastName = alertController.textFields?[1].text
                 {
                     let contact = Contact(firstName: firstName, lastName: lastName)
-                    self.contactList[indexPath.row] = contact
+//                    self.contactList[indexPath.row] = contact
+                    DatabaseHelper.shared.updateContact(oldContact: self.contactList[indexPath.row], newContact: contact)
                     self.ContactTableView.reloadData()
                 }
             }
@@ -112,6 +115,7 @@ extension ViewController : UITableViewDelegate {
         }
         
         let delete = UIContextualAction(style: .destructive, title: "Delete"){_, _, _ in
+            DatabaseHelper.shared.deleteContact(contact: self.contactList[indexPath.row])
             self.contactList.remove(at: indexPath.row)
             self.ContactTableView.reloadData()
         }
