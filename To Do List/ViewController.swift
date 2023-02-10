@@ -16,10 +16,10 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         configuration()
     }
-
+    
+    // ------------ Action Handlers ------------
 
     @IBAction func AddContact(_ sender: UIBarButtonItem) {
         let alertController = UIAlertController(title: "Add Contact", message: "Please enter your contact details", preferredStyle: .alert)
@@ -51,10 +51,10 @@ class ViewController: UIViewController {
     }
 }
 
+// ------------ View Controller Configuration ------------
 
 extension ViewController {
     func configuration(){
-        
         ContactTableView.dataSource = self
         ContactTableView.delegate = self
         ContactTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
@@ -62,18 +62,21 @@ extension ViewController {
     }
 }
 
+// ------------ View Controller : UITableViewSource ------------
 
 extension ViewController : UITableViewDataSource{
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return contactList.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         guard var cell = tableView.dequeueReusableCell(withIdentifier: "cell") else{
             return UITableViewCell()
         }
         
-        cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
+        cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell") // default cell view (in-built type : adding progrmatically)
         
         cell.textLabel?.text = contactList[indexPath.row].firstName
         cell.detailTextLabel?.text = contactList[indexPath.row].lastName
@@ -82,6 +85,7 @@ extension ViewController : UITableViewDataSource{
     }
 }
 
+// ------------ View Controller : UITableViewDelegate ------------
 
 extension ViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
@@ -94,7 +98,6 @@ extension ViewController : UITableViewDelegate {
                    let lastName = alertController.textFields?[1].text
                 {
                     let contact = Contact(firstName: firstName, lastName: lastName)
-//                    self.contactList[indexPath.row] = contact
                     DatabaseHelper.shared.updateContact(oldContact: self.contactList[indexPath.row], newContact: contact)
                     self.ContactTableView.reloadData()
                 }
